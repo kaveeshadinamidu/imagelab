@@ -5,8 +5,8 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
-- [Built Using](#built_using)
 - [Contributing](#contributing)
+- [Built Using](#built_using)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -90,12 +90,6 @@ When installing packages and running the application few issues can be arised. F
 - Check you node and npm versions. Make sure that they are updated to latest versions
 - There may be npm libraries that have outdated. Try to fix those depedency issues by reffering [npmjs](https://www.npmjs.com)
 
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [<img align="left" alt="linked-in" src="https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white" />](https://www.electronjs.org/)
-- [<img align="left" alt="linked-in" src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white" />](https://www.npmjs.com/)
-- [<img align="left" alt="linked-in" src="https://developers.google.com/blockly/images/logos/logo_standard.svg" height= "30" />](https://developers.google.com/blockly)
-
 ## 💻 Contributing <a name = "contributing"></a>
 
 If you need to contribute to this project, we are happy to hear that. Before starting any contributions please read our developer guidelines and then proceed. Following are the steps that you need to follow before implementing coding.
@@ -149,3 +143,9 @@ case ADD_BORDER:
 ```
 
 After procceding above steps you can execute the implemented functions in the application.
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+- [<img align="left" alt="linked-in" src="https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white" />](https://www.electronjs.org/)
+- [<img align="left" alt="linked-in" src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white" />](https://www.npmjs.com/)
+- [<img align="left" alt="linked-in" src="https://developers.google.com/blockly/images/logos/logo_standard.svg" height= "30" />](https://developers.google.com/blockly)
