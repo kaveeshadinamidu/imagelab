@@ -6,6 +6,7 @@
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Built Using](#built_using)
+- [Contributing] (#contributing)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -40,25 +41,20 @@ The commands should print the versions of Node.js and npm accordingly.
 
 \*Note: Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
 
-Then you open your terminal and refer to the directory of [`/imagelab/electron_app`](https://github.com/scorelab/imagelab/tree/master/electron_app) on your machine using `cd` command.
-
-then we will initialize an npm package:
+Then you open your terminal and refer to the directory of [`/imagelab/imagelab_electron`](https://github.com/kaveeshadinamidu/imagelab/tree/master/imagelab_electron) on your machine using `cd` command.
 
 ```
-npm init
+cd imagelab_electron/
 ```
 
 ### Installing
 
 then, you start installing packages used in the project:
 
+You can install all the npm packages once by running
+
 ```
-npm install blockly
-npm install intro.js --save
-npm install @mdi/font
-npm install @blockly/plugin-workspace-search --save
-npm install @blockly/continuous-toolbox --save
-npm install custom-electron-titlebar
+npm install
 ```
 
 ## 🎈 Usage <a name="usage"></a>
@@ -66,11 +62,83 @@ npm install custom-electron-titlebar
 to start opening the application and using it you can run this command:
 
 ```
-npm run start
+npm start
 ```
+
+After starting the application you can implement any combinations of image processing and
+test them. But to execute correctly you need to set the first operator as "read_image" and
+the last operator as "write_image" in the operations stack.
+
+Following are the implemented functions that working currently,
+
+- Basic functions
+- Geometric functions
+- Drawing functions
+- Blurring functions
+- Filtering functions
+
+### Debugging
+
+When installing packages and running the application few issues can be arised. Following are the few steps that you can fix those isses.
+
+- Check you node and npm versions. Make sure that they are updates to latest versions
+- There may be npm libraries that have outdated. Try to fix those depedency issues by reffering [npmjs](https://www.npmjs.com)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [<img align="left" alt="linked-in" src="https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white" />](https://www.electronjs.org/)
 - [<img align="left" alt="linked-in" src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 - [<img align="left" alt="linked-in" src="https://developers.google.com/blockly/images/logos/logo_standard.svg" height= "30" />](https://developers.google.com/blockly)
+
+## ⛏️ Contributing <a name = "contributing"></a>
+
+If you need to contribute for this project, we are happy to hear that. Before start any contributions please read oue developer guidlines and then procced. Following are the steps that you need to follow before implemeting coding.
+
+- Fork our repository and clone the person repository and setup the development environment
+- If you want to implement a new function type then create a folder inside src/operator directory.
+  Ex: If you need to implement the Thresholding functions create a folder names "thresholding" inside src/operator directory.
+- Then create a javascript file with the name of the operator and implement the code.
+  Ex:If you need to implement the Apply Border operator create a file named "applyborder.js".
+- When implementing the functions use classes.
+
+```
+class YourOperator extends OpenCvOperator {
+
+    // This is the main contructor of the function
+    constructor(type,id){
+        super(type,id);
+    }
+
+    // This function set the parameters which are related with the class
+    setParams(type, value) {
+    }
+
+    // This is the method which does the image processing work.
+    compute(image){
+
+    }
+
+}
+
+```
+
+Before running the implemented function you need to setup few other things as well.
+
+- In /operations.js file define your opeation with the matching type selected from the /imagelab-blocks.js file.
+  Ex:
+
+```
+ADD_BORDER:"add_border"
+```
+
+- Modify the addOperator function inside the /src/controller/main.js file.
+
+```
+case ADD_BORDER:
+  this.#appliedOperators.push(
+          new ApplyBorder(PROCESS_OPERATIONS.ADD_BORDER, id)
+        );
+  break;
+```
+
+After procceding above steps you can implement new functions in the application.
